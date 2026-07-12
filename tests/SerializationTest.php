@@ -96,7 +96,7 @@ final class SerializationTest extends TestCase
         $json = $document->toJson();
 
         // assert
-        fact($json)->isJson();
+        fact(json_decode($json, true))->isArray();
         fact($json)->containsString('"@context"');
     }
 
