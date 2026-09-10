@@ -86,7 +86,6 @@ final class OpenVexTest extends TestCase
         )->toJson();
 
         // assert
-        fact(json_decode($json, true))->isArray();
-        fact($json)->containsString('under_investigation');
+        fact($json)->isJson()->jsonPath('statements.0.status', 'under_investigation');
     }
 }
