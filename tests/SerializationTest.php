@@ -96,8 +96,7 @@ final class SerializationTest extends TestCase
         $json = $document->toJson();
 
         // assert
-        fact(json_decode($json, true))->isArray();
-        fact($json)->containsString('"@context"');
+        fact($json)->isJson()->hasJsonPath('@context');
     }
 
     public function testRejectsMalformedJson(): void
